@@ -1,0 +1,57 @@
+managed implementation in class zbp_i_booken unique;
+strict ( 2 );
+
+define behavior for ZI_BOOKEn alias Book
+persistent table zsed_book
+lock master
+authorization master ( instance )
+{
+
+  create ( authorization : global );
+  update;
+  delete;
+
+  field ( mandatory : create ) Bookid;
+  field ( readonly : update ) Bookid;
+
+  association _book { create; }
+
+  mapping for zsed_book
+  {
+    Bookid    = bookid;
+    Bookname  = bookname;
+    Author    = author;
+    Available = available;
+  }
+
+}
+
+define behavior for ZI_BOOK_IS alias BookIssue
+persistent table zsed_book_is
+lock dependent by _issue
+authorization dependent by _issue
+{
+
+  update;
+  delete;
+
+  field ( readonly )
+    Bookid;
+
+  field ( mandatory : create )
+    Issueid;
+
+  field ( readonly : update )
+    Issueid;
+
+  association _issue;
+
+  mapping for zsed_book_is
+  {
+    Issueid   = issueid;
+    Bookid    = bookid;
+    Studname  = studname;
+    Issuedate = issuedate;
+  }
+
+}

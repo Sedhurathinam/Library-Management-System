@@ -1,0 +1,72 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: {
+    typeName: 'Book Issue',
+    typeNamePlural: 'Book Issues',
+    title: {
+      type: #STANDARD,
+      value: 'Issueid'
+    },
+    description: {
+      value: 'Studname'
+    }
+  }
+}
+
+annotate entity ZC_BOOK_IS with
+{
+  @UI.facet: [
+    {
+      id: 'BookIssueDetails',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Book Issue Details',
+      position: 10
+    }
+  ]
+
+  @UI: {
+    lineItem: [
+      { position: 10, label: 'Issue ID' }
+    ],
+    identification: [
+      { position: 10, label: 'Issue ID' }
+    ]
+  }
+  @EndUserText.label: 'Issue ID'
+  Issueid;
+
+  @UI: {
+    lineItem: [
+      { position: 20, label: 'Book ID' }
+    ],
+    identification: [
+      { position: 20, label: 'Book ID' }
+    ]
+  }
+  @EndUserText.label: 'Book ID'
+  Bookid;
+
+  @UI: {
+    lineItem: [
+      { position: 30, label: 'Student Name' }
+    ],
+    identification: [
+      { position: 30, label: 'Student Name' }
+    ]
+  }
+  @EndUserText.label: 'Student Name'
+  Studname;
+
+  @UI: {
+    lineItem: [
+      { position: 40, label: 'Issue Date' }
+    ],
+    identification: [
+      { position: 40, label: 'Issue Date' }
+    ]
+  }
+  @EndUserText.label: 'Issue Date'
+  Issuedate;
+}

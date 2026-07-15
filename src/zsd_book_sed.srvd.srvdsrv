@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Book'
+define service ZSD_BOOK_SED {
+  expose ZC_BOOK_EN;
+  expose ZC_BOOK_IS;
+}

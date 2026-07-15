@@ -1,0 +1,19 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_BOOK_EN alias Book
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _book { create; }
+}
+
+define behavior for ZC_BOOK_IS alias BookIssue
+{
+  use update;
+  use delete;
+
+  use association _issue;
+}

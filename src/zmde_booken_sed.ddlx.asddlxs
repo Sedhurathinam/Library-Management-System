@@ -1,0 +1,80 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: {
+    typeName: 'Book',
+    typeNamePlural: 'Books',
+    title: {
+      type: #STANDARD,
+      value: 'Bookname'
+    },
+    description: {
+      value: 'Bookid'
+    }
+  }
+}
+
+annotate entity ZC_BOOK_EN with
+{
+  @UI.facet: [
+    {
+      id: 'BookDetails',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Book Details',
+      position: 10
+    },
+    {
+      id: 'BookIssueDetails',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Book Issue Details',
+      position: 20,
+      targetElement: '_book'
+    }
+  ]
+
+  @UI: {
+    lineItem: [
+      { position: 10, label: 'Book ID' }
+    ],
+    identification: [
+      { position: 10, label: 'Book ID' }
+    ]
+  }
+  @EndUserText.label: 'Book ID'
+  Bookid;
+
+  @UI: {
+    lineItem: [
+      { position: 20, label: 'Book Name' }
+    ],
+    identification: [
+      { position: 20, label: 'Book Name' }
+    ]
+  }
+  @EndUserText.label: 'Book Name'
+  Bookname;
+
+  @UI: {
+    lineItem: [
+      { position: 30, label: 'Author' }
+    ],
+    identification: [
+      { position: 30, label: 'Author' }
+    ]
+  }
+  @EndUserText.label: 'Author'
+  Author;
+
+  @UI: {
+    lineItem: [
+      { position: 40, label: 'Available' }
+    ],
+    identification: [
+      { position: 40, label: 'Available' }
+    ]
+  }
+  @EndUserText.label: 'Availability'
+  Available;
+}
